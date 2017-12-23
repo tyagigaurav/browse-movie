@@ -1,0 +1,56 @@
+<div class="container-fluid" id="homePage">
+    <div class="row">
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input type="text" class="form-control" ng-model="home.searchText" ng-keyup="$event.keyCode == 13 ? home.search(home.searchText) : null"
+                placeholder="Search for latest movies">
+        </div>
+    </div>
+    <div class="row top-rated-container">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <h3 class="brand-bar">Recently Released Movies</h3>
+            <div uib-carousel active="home.active" interval="home.myInterval" no-wrap="home.noWrapSlides">
+                <div uib-slide ng-repeat="slide in home.recentSlides track by slide.id" index="$index">
+                    <img ng-src="http://image.tmdb.org/t/p/w185//{{slide.backdrop_path}}" class="top-rated-image">
+                    <div class="carousel-caption">
+                        <h4 class="slide-title">{{slide.title}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <h3 class="brand-bar">Top Rated Movies</h3>
+            <div uib-carousel active="home.active" interval="home.myInterval" no-wrap="home.noWrapSlides" ng-click="home.goToDetail('top_rated')">
+                <div uib-slide ng-repeat="slide in home.topSlides track by slide.id" index="$index">
+                    <img ng-src="http://image.tmdb.org/t/p/w185//{{slide.backdrop_path}}" class="top-rated-image">
+                    <div class="carousel-caption">
+                        <h4 class="slide-title">{{slide.title}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row upcoming-movies-container">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <h3 class="brand-bar">Upcoming Movies</h3>
+            <div uib-carousel active="home.active" interval="home.myInterval" no-wrap="home.noWrapSlides">
+                <div uib-slide ng-repeat="slide in home.upcomingSlides track by slide.id" index="$index">
+                    <img ng-src="http://image.tmdb.org/t/p/w185//{{slide.backdrop_path}}" class="top-rated-image">
+                    <div class="carousel-caption">
+                        <h4 class="slide-title">{{slide.title}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <h3 class="brand-bar">Popular Movies</h3>
+            <div uib-carousel active="home.active" interval="home.myInterval" no-wrap="home.noWrapSlides">
+                <div uib-slide ng-repeat="slide in home.popularSlides track by slide.id" index="$index">
+                    <img ng-src="http://image.tmdb.org/t/p/w185//{{slide.backdrop_path}}" class="top-rated-image">
+                    <div class="carousel-caption">
+                        <h4 class="slide-title">{{slide.title}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

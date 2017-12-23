@@ -1,10 +1,9 @@
 (function () {
     'use strict';
-    var angular = require('angular');
-    require('./home.component.scss');
-    require('./home.component.service');
+    require('./home.scss');
 
-    var homeController = function ($scope, $http, $state, homeComponentService, Carousel) {
+    HomeController.$inject = ['$scope', '$state', 'Carousel'];
+    function HomeController($scope, $state, Carousel) {
         var vm = this;
         vm.myInterval = 5000;
         vm.noWrapSlides = false;
@@ -34,18 +33,21 @@
         };
 
         vm.search = function (searchText) {
-            $state.go('app.journey.detail', {filter: vm.searchText});
+            $state.go('app.journey.detail', { filter: vm.searchText });
         };
 
-        vm.goToDetail = function(category){
-            $state.go('app.journey.detail', {filter: category});
+        vm.goToDetail = function (category) {
+            $state.go('app.journey.detail', { filter: category });
         }
-    };
+    }
 
-    var homeComp = angular.module('journey.module').component('homeComponent', {
-        template: require('./home.component.html'),
+    var homeComponent = angular.module('movies').component('mwHome', {
+        template: require('./home.html'),
+        bindings: {
+        },
         controllerAs: 'home',
-        controller: ['$scope', '$state', 'homeComponentService', 'Carousel', homeController]
+        controller: HomeController
     });
-    module.exports = homeComp.name;
+
+    module.exports = homeComponent.name;
 })();
