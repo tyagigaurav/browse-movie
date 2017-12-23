@@ -1,0 +1,13 @@
+<div class="container-fluid" id="detail">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4 detail-container" ng-repeat="item in detail.filteredData">
+            <div class="movie-container">
+            <h3 ng-if="item.media_type === 'movie'" class="title">{{item.title}}</h3>
+            <h3 ng-if="item.media_type === 'tv'" class="title">{{item.name}}</h3>
+            <img class="image" ng-src="http://image.tmdb.org/t/p/w185//{{item.poster_path}}" alt="movie-image">
+            <b>About :</b><p>{{item.overview}}</p>
+            <b>Ratings : {{item.vote_average}}</b>
+            </div>
+        </div>
+    </div>
+</div>

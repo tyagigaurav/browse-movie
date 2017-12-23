@@ -4,9 +4,12 @@
 
     var angular = require('angular');
     
-    var ComponentsModule = angular.module('app.components', [
+    var MoviesModule = angular.module('movies', [
     ]);
+    
+    require('./filter-movie/filter-movie.component');
+    require('./home/home.component');
 
-    module.exports = ComponentsModule.name;
+    module.exports = MoviesModule.name;
 
 })();
