@@ -4,7 +4,7 @@
 
     var angular = require('angular');
     var routeConfig = require('./route-config');
-    require('angular-local-storage');
+    var localStorage = require('angular-local-storage');
 
     var common = require('./common/common.module');
     var components = require('./components/components.module');
@@ -12,7 +12,7 @@
     angular.module('app', [
         common,
         components,
-        'LocalStorageModule',
+        localStorage
     ])
     .config(routeConfig)
     .config(['$httpProvider', 'localStorageServiceProvider', function($httpProvider, localStorageServiceProvider) {
@@ -20,7 +20,7 @@
         $httpProvider.interceptors.push('HttpInterceptor');
     
         localStorageServiceProvider
-        .setStorageType('sessionStorage')
+        .setStorageType('localStorage')
         .setPrefix('MW');
       }]);
 

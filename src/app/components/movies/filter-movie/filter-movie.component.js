@@ -27,10 +27,10 @@
                         obj.image = 'resources/images/no-preview.jpg';
                     }
                     obj.release_date = item.release_date;
-                    if(AppState.getWishlist() && AppState.getWishlist()[type] && AppState.getWishlist()[type].includes(obj.id)){
-                        obj.inWishlist = true;
+                    if(AppState.getWatchlist() && AppState.getWatchlist()[type] && AppState.getWatchlist()[type].includes(obj.id)){
+                        obj.inWatchlist = true;
                     }else{
-                        obj.inWishlist = false;
+                        obj.inWatchlist = false;
                     }
                  }
                  else if(type === "tv"){
@@ -44,10 +44,10 @@
                         obj.image = 'resources/images/no_preview.jpg';
                     }
                     obj.release_date = item.first_air_date;
-                    if(AppState.getWishlist() && AppState.getWishlist()[type] && AppState.getWishlist()[type].includes(obj.id)){
-                        obj.inWishlist = true;
+                    if(AppState.getWatchlist() && AppState.getWatchlist()[type] && AppState.getWatchlist()[type].includes(obj.id)){
+                        obj.inWatchlist = true;
                     }else{
-                        obj.inWishlist = false;
+                        obj.inWatchlist = false;
                     }
                  }
                  obj.type = type;
@@ -61,12 +61,12 @@
         };
 
         vm.toggleWishlist = function(item){
-            if(item.inWishlist){
-                AppState.removeFromWishlist(item.type, item.id)
+            if(item.inWatchlist){
+                AppState.removeFromWatchlist(item.type, item.id)
             }else{
-                AppState.addInWishlist(item.type, item.id)
+                AppState.addInWatchlist(item.type, item.id)
             }
-            item.inWishlist = !item.inWishlist;
+            item.inWatchlist = !item.inWatchlist;
         }
     };
 

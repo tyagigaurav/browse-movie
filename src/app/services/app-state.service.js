@@ -7,7 +7,7 @@
     var appState = angular.module('app').service('AppState', ['localStorageService', function (localStorageService) {
 
         var keys = {
-            wishlist: 'WISHLIST',
+            watchlist: 'WATCHLIST',
             filteredData: 'LIST'
         };
 
@@ -36,49 +36,49 @@
             setInStorage(keys.filteredData, obj);
         };
 
-        this.addInWishlist = function (type, id) {
-            var wishlist = this.getWishlist();
-            if (!wishlist) {
-                wishlist = {};
+        this.addInWatchlist = function (type, id) {
+            var watchlist = this.getWatchlist();
+            if (!watchlist) {
+                watchlist = {};
             }
-            if(!wishlist[type]){
-                wishlist[type] = [];
+            if(!watchlist[type]){
+                watchlist[type] = [];
             }
-            var wishlistByType = wishlist[type];
-            if (wishlistByType.indexOf(id) == -1) {
-                wishlistByType.push(id);
+            var watchlistByType = watchlist[type];
+            if (watchlistByType.indexOf(id) == -1) {
+                watchlistByType.push(id);
             }
-            wishlist[type] = wishlistByType;
-            setInStorage(keys.wishlist, wishlist);
+            watchlist[type] = watchlistByType;
+            setInStorage(keys.watchlist, watchlist);
         };
 
-        this.removeFromWishlist = function (type, id) {
-            var wishlist = this.getWishlist();
-            if (!wishlist) {
-                wishlist = {};
+        this.removeFromWatchlist = function (type, id) {
+            var watchlist = this.getWatchlist();
+            if (!watchlist) {
+                watchlist = {};
             }
-            if(!wishlist[type]){
-                wishlist[type] = [];
+            if(!watchlist[type]){
+                watchlist[type] = [];
             }
-            var wishlistByType = wishlist[type];
-            if (wishlistByType.length > 0) {
-                var index = wishlistByType.indexOf(id);
+            var watchlistByType = watchlist[type];
+            if (watchlistByType.length > 0) {
+                var index = watchlistByType.indexOf(id);
                 if (index > -1) {
-                    wishlistByType.splice(index, 1);
+                    watchlistByType.splice(index, 1);
                 }
             } else {
-                wishlistByType = [];
+                watchlistByType = [];
             }
-            wishlist[type] = wishlistByType;
-            setInStorage(keys.wishlist, wishlist);
+            watchlist[type] = watchlistByType;
+            setInStorage(keys.watchlist, watchlist);
         };
 
-        this.getWishlist = function () {
-            return getFromStorage(keys.wishlist);
+        this.getWatchlist = function () {
+            return getFromStorage(keys.watchlist);
         };
 
-        this.clearWishlist = function () {
-            removeFromStorage(keys.wishlist);
+        this.clearWatchlist = function () {
+            removeFromStorage(keys.watchlist);
         };
 
         this.clearAll = function () {
