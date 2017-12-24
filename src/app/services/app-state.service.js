@@ -3,7 +3,6 @@
     'use strict';
 
     var angular = require('angular');
-    var _ = require('lodash');
 
     var appState = angular.module('app').service('AppState', ['localStorageService', function (localStorageService) {
 
@@ -37,11 +36,11 @@
                 setInStorage(keys.filteredData, obj);
             };
 
-            this.addInWishlist = function (type, data) {
+            this.addInWishlist = function (type, id) {
                 var wishlist = this.getWishlist();
                 var wishlistByType = wishlist.type;
                 if(wishlistByType.data.length > 0){
-                    if(_.isEmpty(_.find(wishlistByType, {'id': data.id}))){
+                    if(wishlistByType.indexOf(id)  == -1){
                         wishlistByType.push(data);
                     }
                 }else{
@@ -55,7 +54,10 @@
                 var wishlist = this.getWishlist();
                 var wishlistByType = wishlist.type;
                 if(wishlistByType.data.length > 0){
-                    wishlistByType = _.reject(wishlistByType, {'id': id});
+                    var index = array.indexOf(id);
+                    if(index > -1){
+                        wishlistByType.splice(index, 1);
+                    }
                 }else{
                     wishlistByType = [];
                 }
@@ -74,7 +76,7 @@
             this.clearAll = function() {
                 return localStorageService.clearAll();
             };
-            
+
         }]);
 
     module.exports = appState.name;

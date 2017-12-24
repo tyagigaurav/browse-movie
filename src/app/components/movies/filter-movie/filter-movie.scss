@@ -4,9 +4,7 @@
         .movie-container {
             border: 2px solid black;
             padding: 15px;
-            .title {
-                font-weight: bold;
-            }
+
             .image {
                 //  width:100%;
                 margin-bottom: 5px;
@@ -25,9 +23,11 @@
     .image-details-container{
         img{
             display: inline-block;
+            width: 185px;
+            height: 278px;
         }
         .details{
-            text-align: center;
+            padding: 5px;
             display: inline-block;
         }
 

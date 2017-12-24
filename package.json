@@ -32,7 +32,6 @@
     "c3": "0.4.18",
     "d3": "4.8.0",
     "fast-json-patch": "2.0.3",
-    "lodash": "^4.17.4",
     "oclazyload": "1.1.0",
     "rimraf": "2.6.1",
     "signature_pad": "2.2.0",
