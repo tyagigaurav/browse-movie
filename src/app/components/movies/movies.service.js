@@ -29,9 +29,7 @@
             var url = 'https://api.themoviedb.org/3/movie/' + category;
             var trustedUrl = $sce.trustAsResourceUrl(url);
             var params = {
-                api_key: "cbdf6ae760a463281149078853b6f643",
-                language: "en-US",
-                page: 1
+                api_key: "cbdf6ae760a463281149078853b6f643"
             };
 
             return $http.jsonp(trustedUrl, {
