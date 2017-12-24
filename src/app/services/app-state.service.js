@@ -40,6 +40,8 @@
             var wishlist = this.getWishlist();
             if (!wishlist) {
                 wishlist = {};
+            }
+            if(!wishlist[type]){
                 wishlist[type] = [];
             }
             var wishlistByType = wishlist[type];
@@ -54,6 +56,8 @@
             var wishlist = this.getWishlist();
             if (!wishlist) {
                 wishlist = {};
+            }
+            if(!wishlist[type]){
                 wishlist[type] = [];
             }
             var wishlistByType = wishlist[type];
