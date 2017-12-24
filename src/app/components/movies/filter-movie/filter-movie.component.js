@@ -27,7 +27,7 @@
                         obj.image = 'resources/images/no-preview.jpg';
                     }
                     obj.release_date = item.release_date;
-                    obj.inWishlist = true;
+                    obj.inWishlist = AppState.getWishlist()[type].includes(obj.id);
                  }
                  obj.type = type;
                  arr.push(obj);    
