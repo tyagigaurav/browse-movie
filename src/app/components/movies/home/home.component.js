@@ -2,8 +2,8 @@
     'use strict';
     require('./home.scss');
 
-    HomeController.$inject = ['$scope', '$state','$q', 'MoviesService'];
-    function HomeController($scope, $state, $q, MoviesService) {
+    HomeController.$inject = ['$scope', '$state','$q', 'MoviesService','AppState'];
+    function HomeController($scope, $state, $q, MoviesService, AppState) {
         var vm = this;
         vm.myInterval = 5000;
         vm.noWrapSlides = false;
@@ -37,8 +37,8 @@
             //$state.go('app.filter', { filter: vm.searchText });
         };
 
-        vm.goToDetail = function (category) {
-            $state.go('app.filter', { filter: category });
+        vm.viewMoreDetails = function (data) {
+            AppState.setFilteredData("movie",data);
         }
     }
 
