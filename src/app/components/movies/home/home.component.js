@@ -32,8 +32,9 @@
             });
         };
 
-        vm.search = function (searchText) {
-            $state.go('app.filter', { filter: vm.searchText });
+        vm.search = function (category,searchText) {
+            console.log(category,searchText);
+            //$state.go('app.filter', { filter: vm.searchText });
         };
 
         vm.goToDetail = function (category) {

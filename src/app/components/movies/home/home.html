@@ -1,9 +1,6 @@
 <div class="container-fluid" id="homePage">
     <div class="row">
-        <div class="col-md-9 col-sm-9 col-xs-12">
-            <input type="text" class="form-control" ng-model="home.searchText" ng-keyup="$event.keyCode == 13 ? home.search(home.searchText) : null"
-                placeholder="Search for latest movies">
-        </div>
+        <mw-search-bar filter-updated="home.search(category,searchText)"></mw-search-bar>
     </div>
     <div class="row top-rated-container">
         <div class="col-md-6 col-sm-6 col-xs-12">
