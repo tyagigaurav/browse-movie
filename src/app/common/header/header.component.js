@@ -7,7 +7,7 @@
 
     };
 
-    var HeaderComponent = angular.module('app.common').component('headerComponent', {
+    var HeaderComponent = angular.module('app.common').component('mwHeader', {
         template: require('./header.html'),
         bindings: {
         },

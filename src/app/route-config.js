@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var routeConfig = function ($stateProvider, $urlServiceProvider, $locationProvider) {
+    var routeConfig = ['$stateProvider', '$urlServiceProvider', '$locationProvider', function ($stateProvider, $urlServiceProvider, $locationProvider) {
         $urlServiceProvider.rules.otherwise({
             state: 'app'
         });
@@ -11,17 +11,7 @@
             redirectTo: 'app.home'
         });
 
-        $stateProvider.state('app.home', {
-            url: '/home',
-            component: 'homeComponent'
-        });
-
-        $stateProvider.state('app.filter', {
-            url: '/movie-filter',
-            component: 'filterMovieComponent',
-        });
-
-    };
+    }];
 
     module.exports = routeConfig;
 })();

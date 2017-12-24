@@ -8,7 +8,7 @@
     "prod": "npm run clean && webpack -p",
     "clean": "rimraf ./dist/*"
   },
-  "author": "Gaurav",
+  "author": "Shraddha",
   "license": "ISC",
   "dependencies": {
     "@uirouter/angularjs": "1.0.11",

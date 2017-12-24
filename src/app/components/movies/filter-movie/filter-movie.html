@@ -1,6 +1,6 @@
 <div class="container-fluid" id="detail">
     <div class="row">
-        <div class="col-md-offset-4 col-md-4 detail-container" ng-repeat="item in detail.filteredData">
+        <div class="col-md-offset-4 col-md-4 detail-container" ng-repeat="item in $ctrl.filteredData">
             <div class="movie-container">
             <h3 ng-if="item.media_type === 'movie'" class="title">{{item.title}}</h3>
             <h3 ng-if="item.media_type === 'tv'" class="title">{{item.name}}</h3>

@@ -7,7 +7,7 @@
 
     };
 
-    var FooterComponent = angular.module('app.common').component('footerComponent', {
+    var FooterComponent = angular.module('app.common').component('mwFooter', {
         template: require('./footer.html'),
         bindings: {
         },

@@ -2,30 +2,30 @@
     'use strict';
     require('./home.scss');
 
-    HomeController.$inject = ['$scope', '$state', 'Carousel'];
-    function HomeController($scope, $state, Carousel) {
+    HomeController.$inject = ['$scope', '$state', 'MoviesService'];
+    function HomeController($scope, $state, MoviesService) {
         var vm = this;
         vm.myInterval = 5000;
         vm.noWrapSlides = false;
         vm.active = 0;
 
         vm.$onInit = function () {
-            homeComponentService.getTopRatedMovie().then(function (data) {
+            MoviesService.getTopRatedMovie().then(function (data) {
                 vm.topSlides = data.data.results.splice(0, 10);
             }, function (error) {
                 vm.errMsg = error;
             });
-            homeComponentService.getNowplayingMovie().then(function (data) {
+            MoviesService.getNowplayingMovie().then(function (data) {
                 vm.recentSlides = data.data.results.splice(0, 10);
             }, function (error) {
                 vm.errMsg = error;
             });
-            homeComponentService.getPopularMovie().then(function (data) {
+            MoviesService.getPopularMovie().then(function (data) {
                 vm.popularSlides = data.data.results.splice(0, 10);
             }, function (error) {
                 vm.errMsg = error;
             });
-            homeComponentService.getUpcomingMovie().then(function (data) {
+            MoviesService.getUpcomingMovie().then(function (data) {
                 vm.upcomingSlides = data.data.results.splice(0, 10);
             }, function (error) {
                 vm.errMsg = error;
@@ -33,11 +33,11 @@
         };
 
         vm.search = function (searchText) {
-            $state.go('app.journey.detail', { filter: vm.searchText });
+            $state.go('app.filter', { filter: vm.searchText });
         };
 
         vm.goToDetail = function (category) {
-            $state.go('app.journey.detail', { filter: category });
+            $state.go('app.filter', { filter: category });
         }
     }
 
