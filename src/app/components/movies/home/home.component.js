@@ -11,7 +11,7 @@
         vm.activeSlide2 = 0;
         vm.activeSlide3 = 0;
         vm.activeSlide4 = 0;
-        vm.slidesToShow = 10
+        vm.slidesToShow = 10;
 
         vm.$onInit = function () {
             getCarousel();
@@ -32,8 +32,13 @@
             });
         }
 
-        vm.search = function (category, searchText) {
-            console.log(category, searchText);
+        vm.search = function (category, query) {
+            MoviesService.getFilterredMovie(category, query).then(function(data){
+                AppState.setFilteredData(category, "filter", data);
+            }, function(){
+
+            });
+            // console.log(category, query);
             //$state.go('app.filter', { filter: vm.searchText });
         };
 

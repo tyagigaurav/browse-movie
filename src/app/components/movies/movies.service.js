@@ -6,30 +6,22 @@
 
         var self = this;
 
-        self.getFilterredMovie = function (searchText) {
+        self.getFilterredMovie = function (category, query) {
 
-            var url = 'https://api.themoviedb.org/3/search/multi';
+            var url = 'https://api.themoviedb.org/3/search/' + category;
             var trustedUrl = $sce.trustAsResourceUrl(url);
             var params = {
                 api_key: "cbdf6ae760a463281149078853b6f643",
-                language: "en-US",
-                page: 1,
-                include_adult: false,
-                query: searchText
-            }
+                query: query
+            };
 
-            var defer = $q.defer();
-
-            $http.jsonp(trustedUrl, {
+            return $http.jsonp(trustedUrl, {
                 params: params
             }).then(function (response) {
-                if (response && response.status === 200) {
-                    return defer.resolve(response);
-                }
-            }, function (response) {
-                return defer.reject("An error has occurred. Please close this application and try again later. Our apologies for any inconvenience caused.");
+                return response.data.results;
+            }, function (error) {
+                return $q.reject(error);
             });
-            return defer.promise;
         };
 
         self.getCategoryMovie = function (category) {
@@ -40,20 +32,15 @@
                 api_key: "cbdf6ae760a463281149078853b6f643",
                 language: "en-US",
                 page: 1
-            }
+            };
 
-            var defer = $q.defer();
-
-            $http.jsonp(trustedUrl, {
+            return $http.jsonp(trustedUrl, {
                 params: params
             }).then(function (response) {
-                if (response && response.status === 200) {
-                    return defer.resolve(response.data.results);
-                }
-            }, function (response) {
-                return defer.reject("An error has occurred. Please close this application and try again later. Our apologies for any inconvenience caused.");
+                return response.data.results;
+            }, function (error) {
+                return $q.reject(error);
             });
-            return defer.promise;
         };
 
     }]);

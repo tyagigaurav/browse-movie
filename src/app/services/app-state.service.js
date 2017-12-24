@@ -27,9 +27,10 @@
                return getFromStorage(keys.filteredData);
             };
 
-            this.setFilteredData = function (type, data) {
+            this.setFilteredData = function (type, category, data) {
                 var obj = {
                     type: type,
+                    category: category,
                     data: data
                 };
                 setInStorage(keys.filteredData, obj);

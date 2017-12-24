@@ -7,8 +7,6 @@
         var vm = this;
 
         vm.$onInit = function () {
-            vm.category="Shraddha";
-            vm.keyword="loser"
         };
 
         vm.search = function(){
