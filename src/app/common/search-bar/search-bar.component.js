@@ -7,6 +7,7 @@
         var vm = this;
 
         vm.$onInit = function () {
+            vm.category = 'movie';
         };
 
         vm.search = function(){
