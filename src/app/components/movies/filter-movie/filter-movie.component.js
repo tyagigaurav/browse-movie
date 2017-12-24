@@ -27,7 +27,11 @@
                         obj.image = 'resources/images/no-preview.jpg';
                     }
                     obj.release_date = item.release_date;
-                    obj.inWishlist = AppState.getWishlist()[type].includes(obj.id);
+                    if(AppState.getWishlist() && AppState.getWishlist()[type] && AppState.getWishlist()[type].includes(obj.id)){
+                        obj.inWishlist = true;
+                    }else{
+                        obj.inWishlist = false;
+                    }
                  }
                  obj.type = type;
                  arr.push(obj);    
