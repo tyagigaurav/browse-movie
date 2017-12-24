@@ -7,6 +7,7 @@
 
         vm.$onInit = function () {
 
+            vm.slidesToShow = 10;
             vm.filteredData = normalize(AppState.getFilteredData().type, AppState.getFilteredData().data);
             
         };
@@ -53,6 +54,10 @@
                  arr.push(obj);    
              });
              return arr;
+        };
+
+        vm.addMoreSlides = function(){
+            vm.slidesToShow += 10;
         };
 
         vm.toggleWishlist = function(item){
