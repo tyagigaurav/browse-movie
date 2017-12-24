@@ -2,38 +2,38 @@
     'use strict';
     require('./home.scss');
 
-    HomeController.$inject = ['$scope', '$state', 'MoviesService'];
-    function HomeController($scope, $state, MoviesService) {
+    HomeController.$inject = ['$scope', '$state','$q', 'MoviesService'];
+    function HomeController($scope, $state, $q, MoviesService) {
         var vm = this;
         vm.myInterval = 5000;
         vm.noWrapSlides = false;
-        vm.active = 0;
+        vm.activeSlide1 = 0;
+        vm.activeSlide2 = 0;
+        vm.activeSlide3 = 0;
+        vm.activeSlide4 = 0;
+        vm.slidesToShow = 10
 
         vm.$onInit = function () {
-            MoviesService.getTopRatedMovie().then(function (data) {
-                vm.topSlides = data.data.results.splice(0, 10);
-            }, function (error) {
-                vm.errMsg = error;
-            });
-            MoviesService.getNowplayingMovie().then(function (data) {
-                vm.recentSlides = data.data.results.splice(0, 10);
-            }, function (error) {
-                vm.errMsg = error;
-            });
-            MoviesService.getPopularMovie().then(function (data) {
-                vm.popularSlides = data.data.results.splice(0, 10);
-            }, function (error) {
-                vm.errMsg = error;
-            });
-            MoviesService.getUpcomingMovie().then(function (data) {
-                vm.upcomingSlides = data.data.results.splice(0, 10);
-            }, function (error) {
-                vm.errMsg = error;
-            });
+            getCarousel();
         };
 
-        vm.search = function (category,searchText) {
-            console.log(category,searchText);
+        var getCarousel = function () {
+            var promises = [];
+            promises.push(MoviesService.getCategoryMovie("top_rated"));
+            promises.push(MoviesService.getCategoryMovie("now_playing"));
+            promises.push(MoviesService.getCategoryMovie("popular"));
+            promises.push(MoviesService.getCategoryMovie("upcoming"));
+
+            $q.all(promises).then(function (results) {
+                vm.topSlides = results[0];
+                vm.recentSlides = results[1];
+                vm.popularSlides = results[2];
+                vm.upcomingSlides = results[3];
+            });
+        }
+
+        vm.search = function (category, searchText) {
+            console.log(category, searchText);
             //$state.go('app.filter', { filter: vm.searchText });
         };
 
@@ -45,6 +45,7 @@
     var homeComponent = angular.module('movies').component('mwHome', {
         template: require('./home.html'),
         bindings: {
+            movies: '='
         },
         controllerAs: 'home',
         controller: HomeController
