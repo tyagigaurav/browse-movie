@@ -2,7 +2,6 @@
     'use strict';
     require('./footer.scss');
 
-    FooterController.$inject = [];
     function FooterController(){
 
     };
@@ -11,7 +10,7 @@
         template: require('./footer.html'),
         bindings: {
         },
-        controller: FooterController
+        controller: [FooterController]
     });
 
     module.exports = FooterComponent.name;

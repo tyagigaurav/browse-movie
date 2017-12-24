@@ -7,7 +7,7 @@
                     <option value='person'>Search People</option>
                     <option value='tv'>Search TV Shows</option>
                 </select>
-                <input type="text" class="form-control keyboard-search" ng-model="$ctrl.keyword" placeholder="Search">
+                <input type="text" class="form-control keyboard-search" ng-model="$ctrl.keyword" placeholder="Search" ng-keyup="$event.keyCode == 13 ? $ctrl.search($ctrl.category,$ctrl.keyword) : null">
                 <button class="btn btn-default" type="button" ng-click="$ctrl.search($ctrl.category,$ctrl.keyword)"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </div>
         </div>

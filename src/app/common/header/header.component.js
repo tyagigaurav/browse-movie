@@ -2,7 +2,6 @@
     'use strict';
     require('./header.scss');
 
-    HeaderController.$inject = [];
     function HeaderController(){
 
     };
@@ -11,7 +10,7 @@
         template: require('./header.html'),
         bindings: {
         },
-        controller: HeaderController
+        controller: [HeaderController]
     });
 
     module.exports = HeaderComponent.name;

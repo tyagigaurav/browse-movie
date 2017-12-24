@@ -2,7 +2,6 @@
     'use strict';
     require('./search-bar.scss');
 
-    SearchBarController.$inject = ['$scope', '$state', 'MoviesService', '$stateParams'];
     function SearchBarController($scope, $state, MoviesService, $stateParams) {
         var vm = this;
 
@@ -20,7 +19,7 @@
         bindings: {
             filterUpdated: '&'
         },
-        controller: SearchBarController
+        controller: ['$scope', '$state', 'MoviesService', '$stateParams', SearchBarController]
     });
 
     module.exports = searchBarComponent.name;

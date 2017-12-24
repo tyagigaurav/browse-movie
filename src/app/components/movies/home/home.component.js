@@ -2,7 +2,6 @@
     'use strict';
     require('./home.scss');
 
-    HomeController.$inject = ['$scope', '$state','$q', 'MoviesService','AppState'];
     function HomeController($scope, $state, $q, MoviesService, AppState) {
         var vm = this;
         vm.myInterval = 5000;
@@ -41,8 +40,6 @@
             }, function(){
 
             });
-            // console.log(category, query);
-            //$state.go('app.filter', { filter: vm.searchText });
         };
 
         vm.viewMoreDetails = function (category,data) {
@@ -54,7 +51,7 @@
     var homeComponent = angular.module('movies').component('mwHome', {
         template: require('./home.html'),
         controllerAs: 'home',
-        controller: HomeController
+        controller: ['$scope', '$state','$q', 'MoviesService','AppState', HomeController]
     });
 
     module.exports = homeComponent.name;
