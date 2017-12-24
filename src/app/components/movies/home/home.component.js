@@ -14,6 +14,7 @@
         vm.slidesToShow = 10;
 
         vm.$onInit = function () {
+            vm.dataLoaded = false;
             getCarousel();
         };
 
@@ -29,6 +30,7 @@
                 vm.recentSlides = results[1];
                 vm.popularSlides = results[2];
                 vm.upcomingSlides = results[3];
+                vm.dataLoaded = true;
             });
         }
 

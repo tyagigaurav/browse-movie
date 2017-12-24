@@ -16,15 +16,18 @@
     ])
     .config(routeConfig)
     .config(['$httpProvider', 'localStorageServiceProvider', function($httpProvider, localStorageServiceProvider) {
-        // 'ngInject';
-        // $httpProvider.interceptors.push('httpInterceptor');
+
+        $httpProvider.interceptors.push('HttpInterceptor');
     
         localStorageServiceProvider
         .setStorageType('sessionStorage')
         .setPrefix('MW');
       }]);
 
+      require('./http-interceptor');
+
       /**************** Services *****************/
       require('./services/app-state.service');
+      require('./services/page-loader.service');
 
 })();
