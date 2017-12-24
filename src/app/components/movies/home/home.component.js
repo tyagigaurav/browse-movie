@@ -37,8 +37,8 @@
             //$state.go('app.filter', { filter: vm.searchText });
         };
 
-        vm.viewMoreDetails = function (data) {
-            AppState.setFilteredData("movie",data);
+        vm.viewMoreDetails = function (category,data) {
+            AppState.setFilteredData("movie", category, data);
         }
     }
 
