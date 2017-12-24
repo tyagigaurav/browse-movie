@@ -44,9 +44,6 @@
 
     var homeComponent = angular.module('movies').component('mwHome', {
         template: require('./home.html'),
-        bindings: {
-            movies: '='
-        },
         controllerAs: 'home',
         controller: HomeController
     });
