@@ -2,17 +2,13 @@
     'use strict';
     require('./filter-movie.scss');
 
-    FilterMovieController.$inject = ['$scope', '$http', '$state', 'MoviesService', '$stateParams'];
-    function FilterMovieController($scope, $http, $state, MoviesService, $stateParams) {
+    FilterMovieController.$inject = ['$scope', '$http', '$state', 'MoviesService', 'AppState'];
+    function FilterMovieController($scope, $http, $state, MoviesService, AppState) {
         var vm = this;
 
         vm.$onInit = function () {
-            MoviesService.getFilterredMovie($stateParams.filter).then(function (data) {
-                vm.filteredData = data.data.results;
-                console.log(vm.filteredData);
-            }, function (error) {
-                vm.errMsg = error;
-            });
+
+            vm.filteredData = AppState.getFilteredData().data;
         };
     };
 

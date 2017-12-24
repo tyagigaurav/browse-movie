@@ -35,6 +35,7 @@
         vm.search = function (category, query) {
             MoviesService.getFilterredMovie(category, query).then(function(data){
                 AppState.setFilteredData(category, "filter", data);
+                $state.go('app.filter');
             }, function(){
 
             });
@@ -43,6 +44,7 @@
         };
 
         vm.viewMoreDetails = function (category,data) {
+            $state.go('app.filter');
             AppState.setFilteredData("movie", category, data);
         }
     }
