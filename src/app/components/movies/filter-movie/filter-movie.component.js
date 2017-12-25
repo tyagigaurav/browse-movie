@@ -24,7 +24,7 @@
                     if(item.poster_path){
                         obj.image = 'http://image.tmdb.org/t/p/w185/' + item.poster_path;
                     }else{
-                        obj.image = 'resources/images/no-preview.jpg';
+                        obj.image = 'resources/images/no_preview.jpg';
                     }
                     obj.release_date = item.release_date;
                     if(AppState.getWatchlist() && AppState.getWatchlist()[type] && AppState.getWatchlist()[type].includes(obj.id)){
