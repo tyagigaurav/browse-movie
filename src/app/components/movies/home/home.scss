@@ -1,0 +1,38 @@
+#homePage{
+    .search-box{
+       margin-top: 20px;
+       margin-bottom: 20px;
+    }
+
+    img{
+       height:450px;
+       width:100%;
+    }
+    h4{
+       font-weight: bolder;
+       color:white;
+    }
+    h3{
+        color:white;
+    }
+    .carousel-inner{
+      width:100%;
+    }
+    .slide-title{
+        color:white;
+    }
+    .top-rated-container{
+        margin-top:30px;
+    }
+    .upcoming-movies-container{
+        margin-top:30px;
+    }
+    .view-more{
+      color: white;
+      cursor: pointer;
+      margin-top:5px;
+      &:hover{
+          text-decoration: underline;
+      }
+    }
+}

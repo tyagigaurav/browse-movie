@@ -1,0 +1,57 @@
+<div class="container-fluid" id="homePage">
+    <div class="row search-box">
+        <mw-search-bar filter-updated="home.search(category,searchText)"></mw-search-bar>
+    </div>
+    <div ng-if="home.dataLoaded" class="row top-rated-container">
+        <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
+            <h3 class="brand-bar">Recently Released Movies</h3>
+            <div uib-carousel active="home.activeSlide1" interval="home.myInterval" no-wrap="home.noWrapSlides">
+                <div uib-slide ng-repeat="slide in home.recentSlides | limitTo:home.slidesToShow" index="$index">
+                    <img ng-src="http://image.tmdb.org/t/p/w500//{{slide.poster_path}}" class="top-rated-image">
+                    <div class="carousel-caption">
+                        <h4 class="slide-title">{{slide.title}}</h4>
+                    </div>
+                </div>
+            </div>
+            <b class="pull-right view-more" ng-click="home.viewMoreDetails('Recently Released Movies',home.recentSlides)">View More...</b>
+        </div>
+        <div class="col-md-5 col-sm-6 col-xs-12">
+            <h3 class="brand-bar">Top Rated Movies</h3>
+            <div uib-carousel active="home.activeSlide2" interval="home.myInterval" no-wrap="home.noWrapSlides">
+                <div uib-slide ng-repeat="slide in home.topSlides | limitTo:home.slidesToShow" index="$index">
+                    <img ng-src="http://image.tmdb.org/t/p/w500//{{slide.poster_path}}" class="top-rated-image">
+                    <div class="carousel-caption">
+                        <h4 class="slide-title">{{slide.title}}</h4>
+                    </div>
+                </div>
+            </div>
+            <b class="pull-right view-more" ng-click="home.viewMoreDetails('Top Rated Movies',home.recentSlides)">View More...</b>
+        </div>
+    </div>
+    <div ng-if="home.dataLoaded" class="row upcoming-movies-container">
+        <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
+            <h3 class="brand-bar">Upcoming Movies</h3>
+            <div uib-carousel active="home.activeSlide2" interval="home.myInterval" no-wrap="home.noWrapSlides">
+                <div uib-slide ng-repeat="slide in home.upcomingSlides | limitTo:home.slidesToShow" index="$index">
+                    <img ng-src="http://image.tmdb.org/t/p/w500//{{slide.poster_path}}" class="top-rated-image">
+                    <div class="carousel-caption">
+                        <h4 class="slide-title">{{slide.title}}</h4>
+                    </div>
+                </div>
+            </div>
+            <b class="pull-right view-more" ng-click="home.viewMoreDetails('Upcoming Movies',home.recentSlides)">View More...</b>
+        </div>
+        <div class="col-md-5 col-sm-6 col-xs-12">
+            <h3 class="brand-bar">Popular Movies</h3>
+            <div uib-carousel active="home.activeSlide3" interval="home.myInterval" no-wrap="home.noWrapSlides">
+                <div uib-slide ng-repeat="slide in home.popularSlides | limitTo:home.slidesToShow" index="$index">
+                    <img ng-src="http://image.tmdb.org/t/p/w500//{{slide.poster_path}}" class="top-rated-image">
+                    <div class="carousel-caption">
+                        <h4 class="slide-title">{{slide.title}}</h4>
+                    </div>
+                </div>
+            </div>
+            <b class="pull-right view-more" ng-click="home.viewMoreDetails('Popular Movies',home.recentSlides)">View More...</b>
+        </div>
+    </div>
+</div>

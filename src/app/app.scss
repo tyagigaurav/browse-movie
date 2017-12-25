@@ -1,1 +1,108 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+#full-container {
+    background-image: url('../resources/images/bg.jpg');
+    padding-bottom: 15px;
+    flex: 1 0 auto;
+}
+
+html,
+body {
+    min-width: 320px;
+    font-size: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+/*****************Loading Mask***************/
+
+.loading-mask-container {
+    position: relative; 
+    .loader {
+        margin: 0 auto;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        border: 10px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 10px solid blue;
+        border-right: 10px solid green;
+        border-bottom: 10px solid red;
+        border-left: 10px solid pink;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.position-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loader-text {
+    color: white;
+    margin-top: 10px;
+}
+
+.loader-content {
+    position: absolute;
+    text-align: center;
+    width: 90%;
+    z-index: 1900;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: -webkit-translate(-50%, -50%);
+    transform: -moz-translate(-50%, -50%);
+    transform: -ms-translate(-50%, -50%);
+}
+
+#loading-mask-body {
+    @extend .position-absolute;
+    z-index: 1000;
+}
+
+#loading-mask {
+    @extend .position-absolute;
+    background: black;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+*::-webkit-scrollbar {
+    width: 1em;
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px white;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
