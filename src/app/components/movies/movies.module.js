@@ -19,10 +19,7 @@
 
         $stateProvider.state('app.filter', {
             url: '/movie-filter',
-            component: 'mwFilterMovie',
-            params:{
-                filter: null
-            }
+            component: 'mwFilterMovie'
         });
 
     }]);

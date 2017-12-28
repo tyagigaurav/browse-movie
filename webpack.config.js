@@ -127,11 +127,6 @@ module.exports = {
         disableHostCheck: true,
         stats: 'normal'
     },
-    resolve: {
-        alias: {
-            
-        }
-    },
     plugins: [
         // Injects bundles in your index.html instead of wiring all manually.
         // It also adds hash to all injected assets so we don't have problems
