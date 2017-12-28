@@ -31,7 +31,7 @@
     <div ng-if="home.dataLoaded" class="row upcoming-movies-container">
         <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
             <h3 class="brand-bar">Upcoming Movies</h3>
-            <div uib-carousel active="home.activeSlide2" interval="home.myInterval" no-wrap="home.noWrapSlides">
+            <div uib-carousel active="home.activeSlide3" interval="home.myInterval" no-wrap="home.noWrapSlides">
                 <div uib-slide ng-repeat="slide in home.upcomingSlides | limitTo:home.slidesToShow" index="$index">
                     <img ng-src="http://image.tmdb.org/t/p/w500//{{slide.poster_path}}" class="top-rated-image">
                     <div class="carousel-caption">
